@@ -31,8 +31,7 @@ app.use(require('./controllers/register'))
 
 
 
-//using assets as oour public dir
-app.use(express.static('assets'));
+
 function nonlogger(req,res,next){
 		if(req.session.username){
 			res.redirect('/');
