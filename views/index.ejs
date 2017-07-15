@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ShortenMe - Url Shortener</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> <%= info[0] %> </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+     
+
+
+
+
+
+
+
+
+
+
+<% 
+if(info.length>0){
+
+%><div class="alert alert-<%=info[1]%>">
+
+<%= info[2] %>
+</div>
+<%
+	
+
+
+
+
+%>
+
+
+<script>
+	$(function(){
+		$("#myModal").modal('show');
+	});
+</script>
+
+
+
+
+<%
+
+
+}
+
+%>
+
+ </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-toggleable-md navbar-inverse" style="background-color:#bf5f82;">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">ShortenMe - <small>Url Shortener</small></a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+
+
+    <% if(user){ %>
+    	  <li class="nav-item">
+    	  <a class="nav-link" href="#">Welcome <%= user %>
+    	  </a>
+    	  </li>
+    	   <li class="nav-item">
+        <a class="nav-link" href="/Logout">Logout</a>
+      </li>
+    	  <%
+    }
+   else {
+   %>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register">Register</a>
+      </li>
+   <%
+   }
+   %>
+      
+    </ul>
+    
+  </div>
+</nav>
+
+
+<div class="card card-block" style="background-color:#90caf9;border-radius: 0;color: white;">
+	<strong>
+	Simplify Your Links 
+	<br>
+	<form class="form-inline" id="for" method="post" action="/urlpost">
+		<input type="text" name="url" id="url" placeholder = "http://google.com" class="form-control" style="margin-right :20px;margin-top:5px;margin-bottom: 5px;width: 50%" required="true">
+		<input type="submit" name="Shorten Url" class="btn btn-success">
+	</form>
+	
+
+
+
+
+
+
+
+		<br>
+		You can view full statistics of your shortened url after logging in !
+	</strong>
+
+</div>
+<br>
+<br>
+<div class="container" style="color: grey">
+	
+
+
+
+
+
+<div class="row ">
+<div class="col-md-4">
+
+<i class="fa fa-gg-circle fa-3x" style="color: green;margin-right: 10px"> </i> <strong>Shorten</strong>
+<br>
+<br>
+Shorten your URL so it’s ready to be shared everywhere
+
+</div>
+<div class="col-md-4">
+<i class="fa fa-line-chart fa-3x" style="color: green;margin-right: 10px"> </i> <strong>Track</strong>
+<br>
+<br>
+
+Analytics help you know about your clicks
+</div>
+<div class="col-md-4">
+	
+<i class="fa fa-user-circle-o fa-3x" style="color: green;margin-right: 10px"> </i> <strong>Learn</strong>
+<br>
+<br>
+Understand and visualize your audience
+</div>
+
+
+
+
+</div>
+<br>
+
+<div class="jumbotron">
+<div class="card mx-auto card-block" style="width: 50%">
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if(datas.length>0){
+
+
+
+
+%>
+
+<strong>
+<center> View Your Datas </center></strong>
+
+<br>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+     
+      <th>URL</th>
+      <th>Short Code</th>
+      <th>Views</th>
+       <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      
+
+
+<%
+	for(i=0;i<datas.length;i++){
+	%> <td> <%= datas[i].url %> </td><td> <a href ="/<%= datas[i].short%>">Visit</a> </td> <td> <%= datas[i].views %></td> <td><a href ="/delete/<%= datas[i].short%>">Delete</a></td></tr> <%
+	}
+}
+else{
+	 %> Login or register or add shorten some links to view stats<%
+}
+%>
+
+
+ </tr>
+  </tbody>
+</table>
+
+
+
+</div>
+</div>
+<br>
+
+ 
+</body>
+</html>
