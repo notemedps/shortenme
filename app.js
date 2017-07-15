@@ -2,7 +2,7 @@
 
 var express = require('express');
 var app = express();
-var port = process.env.PORT;
+var port = process.env.PORT || 3030;
 var parser = require('body-parser');
 var flash = require('express-flash');
 var validator = require('express-validator');
@@ -153,8 +153,8 @@ app.get('/:url',function(req,res){
 
 
 
+app.set('port',port);
 
-
-app.listen(port,function(){
+app.listen(app.get('port'),function(){
 	console.log("Listening to port "+port)
 });
