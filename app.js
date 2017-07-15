@@ -2,7 +2,7 @@
 
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 3030;
+var port = process.env.PORT;
 var parser = require('body-parser');
 var flash = require('express-flash');
 var validator = require('express-validator');
